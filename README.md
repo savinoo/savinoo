@@ -1,29 +1,49 @@
-# Hi, I'm Lucas Savino 🚀
-### Computer Engineer | AI & Python Backend Developer
+# Lucas Lorenzo Savino
+## AI Engineer | Agent Development & MLOps
 
-Driven by Computer Engineering principles, I specialize in building intelligent backend systems. My current focus is on **Agentic RAG systems** and scalable Python architectures.
+I build intelligent systems that solve real problems.
+
+### 🚀 Current Work
+- **AI Grading System** (TCC) - Automated assessment for discursive evaluations using LLMs
+- Exploring agent orchestration and multi-model workflows
+- Available for freelance AI/ML projects
+
+### 🛠️ Tech Stack
+**AI/ML:** Python • LangChain • OpenAI API • Anthropic Claude • RAG • Vector Databases  
+**Backend:** FastAPI • Node.js • TypeScript  
+**DevOps:** Docker • Git • CI/CD • PostgreSQL
+
+### 📫 Work With Me
+- 💼 Open to freelance opportunities
+- 📧 Contact me for AI agent development, MLOps, and system integration
+- 🌐 Location: Brazil (Remote, US/EU hours available)
+
+### 🔬 Featured Projects
+
+**[AI Grading System](https://github.com/savinoo/ai-grading-system)** (TCC)  
+Automated evaluation system for discursive assessments using LLMs with reproducible workflows.
+- Tech: Python, OpenAI API, RAG architecture
+- Features: Criteria-based evaluation, feedback generation, score normalization
+
+**[Simple RAG Chatbot](https://github.com/savinoo/simple-rag-chatbot)**  
+Lightweight RAG chatbot with LangChain, ChromaDB, and Streamlit.
+- Tech: Python, LangChain, OpenAI, ChromaDB, Streamlit
+- Features: Document ingestion, vector search, context-aware responses
+
+**[AI Agent Demo](https://github.com/savinoo/ai-agent-demo)**  
+Autonomous AI agent with multiple tools (web search, calculator, Wikipedia, Python REPL).
+- Tech: LangChain ReAct agent, OpenAI, DuckDuckGo
+- Features: Multi-tool orchestration, reasoning visibility, task automation
+
+**[FastAPI ML Deploy](https://github.com/savinoo/fastapi-ml-deploy)**  
+Production-ready ML deployment template with Docker and CI/CD.
+- Tech: FastAPI, Docker, Pydantic, Pytest
+- Features: REST API, health checks, metrics, containerization
+
+### 📚 Education & Experience
+- 🎓 Computer Engineering - Instituto Federal Fluminense (IFF)
+- 💼 AI/ML Intern - Petrobras
 
 ---
 
-### 🧠 Expertise
-- **AI/LLM Orchestration:** LangChain, LangGraph, OpenAI, Vector DBs (ChromaDB).
-- **Backend Engineering:** Python (Expert), Java (Spring Boot), SQL.
-- **Academic Foundation:** Computer Engineering Student | C1 English Proficiency.
-
-### 🔬 Highlighted Projects
-- **[🤖 RAG Agentic System](https://github.com/savinoo/RAG_Agent):** Stateful PDF chat agent using LangGraph.
-- **[🎓 Mentorship Platform v4](https://github.com/savinoo/plataforma-mentoria-estudantes-):** A complete student orientation ecosystem.
-- **[🏎 Self-Driving Car NN](https://github.com/savinoo/self-driving-car-with-neural-network):** Neural network for obstacle avoidance.
-
----
-
-### 📊 GitHub Stats
-![Lucas's GitHub Stats](https://github-readme-stats.vercel.app/api?username=savinoo&show_icons=true&theme=radical)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=savinoo&layout=compact&theme=radical)
-
----
-
-### 📫 Connect with me
-- **Email:** lulosavino@gmail.com
-- **LinkedIn:** [Lucas Lorenzo Savino](https://www.linkedin.com/in/lucas-savino-1b0745214/)
-- **Location:** Rio de Janeiro, Brazil 🇧🇷 (Open to international opportunities)
+*Open to freelance opportunities • AI agent development • MLOps • System integration*
