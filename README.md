@@ -20,25 +20,10 @@ I build intelligent systems that solve real problems.
 
 ### 🔬 Featured Projects
 
-**[AI Grading System](https://github.com/savinoo/ai-grading-system)** (TCC)  
-Automated evaluation system for discursive assessments using LLMs with reproducible workflows.
-- Tech: Python, OpenAI API, RAG architecture
-- Features: Criteria-based evaluation, feedback generation, score normalization
-
-**[Simple RAG Chatbot](https://github.com/savinoo/simple-rag-chatbot)**  
-Lightweight RAG chatbot with LangChain, ChromaDB, and Streamlit.
-- Tech: Python, LangChain, OpenAI, ChromaDB, Streamlit
-- Features: Document ingestion, vector search, context-aware responses
-
-**[AI Agent Demo](https://github.com/savinoo/ai-agent-demo)**  
-Autonomous AI agent with multiple tools (web search, calculator, Wikipedia, Python REPL).
-- Tech: LangChain ReAct agent, OpenAI, DuckDuckGo
-- Features: Multi-tool orchestration, reasoning visibility, task automation
-
-**[FastAPI ML Deploy](https://github.com/savinoo/fastapi-ml-deploy)**  
-Production-ready ML deployment template with Docker and CI/CD.
-- Tech: FastAPI, Docker, Pydantic, Pytest
-- Features: REST API, health checks, metrics, containerization
+**[AI Grading System](https://github.com/savinoo/ai-grading-system)** — Automated evaluation for discursive assessments  
+**[Simple RAG Chatbot](https://github.com/savinoo/simple-rag-chatbot)** — RAG implementation with LangChain + Streamlit  
+**[AI Agent Demo](https://github.com/savinoo/ai-agent-demo)** — Autonomous agent with multiple tools  
+**[FastAPI ML Deploy](https://github.com/savinoo/fastapi-ml-deploy)** — Production ML deployment template
 
 ### 📚 Education & Experience
 - 🎓 Computer Engineering - Instituto Federal Fluminense (IFF)
