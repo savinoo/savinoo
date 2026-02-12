@@ -43,6 +43,13 @@ Autonomous AI agent that aggregates metrics from Shopify, Meta Ads, and Google A
 - **Tech:** FastAPI, SQLite, Docker, Jinja2 templating
 - **Architecture:** Clean adapter pattern, decision memory, one-click Render deploy
 
+### [WhatsApp Agentic Daemon](https://github.com/savinoo/whatsapp-mcp) — AI Agent via WhatsApp
+Turn WhatsApp into a full agentic interface. Send a message from your phone, Claude executes on your Mac with full tool access, and sends back the result — including modified files.
+
+- **Features:** Streaming with heartbeat, session continuity, auto file sharing, cost tracking, 8 slash commands
+- **Tech:** Python, Claude CLI (stream-json), SQLite, Go (WhatsApp bridge)
+- **Architecture:** Webhook daemon + Go bridge + Claude CLI with process management
+
 ### [RAG Knowledge Base System](https://github.com/savinoo/simple-rag-chatbot) — Grounded Q&A with Citations
 Enterprise-ready RAG system with mandatory citations, confidence thresholds ("Not in KB yet" fallback), full audit trail (JSONL + SQLite), and built-in retrieval evaluation harness.
 
