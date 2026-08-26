@@ -1,41 +1,89 @@
 # Lucas Lorenzo Savino
 
-Applied AI Engineer | RAG, agents, and LLM evaluation | Ex-Petrobras
+**AI Engineer — agents, context engineering, RAG with a human in the loop**
 
-I build systems that score and retrieve against a company's own documents, with citations, an audit trail, and a human in the loop. The recurring problem is not generating text. It is knowing whether the output is grounded.
+I design the system around the model, not the prompt. The decisions that matter are
+which documents enter the context window, when an extra agent is worth its cost,
+what the model is deliberately *not* allowed to see, and where a person confirms
+before a decision counts.
 
-## What I work on
+Computer Engineering, Instituto Federal Fluminense (2026). Almost two years at
+Petrobras, in logistics, putting an LLM inside a real decision process.
 
-- RAG pipelines with source citations and a fallback when retrieval is weak
-- Retrieval evaluation (recall@k, MRR) before and after indexing changes
-- Multi-agent scoring: independent graders plus a conditional arbiter
-- Document ingestion across PDF, DOCX, and spreadsheets
-- AWS serverless when the system has to run (Lambda, S3, DynamoDB, Cognito, CDK)
+## What I decide when I build these systems
 
-## Featured projects
+- **Context scoping** — what enters the window, what stays out, and why leakage between cases invalidates the output and the experiment measuring it
+- **Agent topology** — isolated context so parallel agents don't anchor on each other; conditional routing so the expensive agent only runs when it earns its place
+- **Human confirmation** — the system proposes with reasoning and sources; a person approves before the result is authoritative, and every decision stays traceable to the criterion behind it
+- **Honest evaluation** — measuring whether retrieval actually helped, and reporting the cases where it changed nothing
+- **AWS serverless when the thing has to actually run** — Lambda, S3, DynamoDB, Cognito, SQS, CDK
 
-**[AI Grading System](https://github.com/savinoo/ai-grading-system)** — capstone (TCC)
-Two examiner agents grade a discursive answer in parallel against a rubric and RAG-retrieved course material. A third arbiter runs only when their scores diverge. Controlled study: 24 graded answers, full end-to-end completion, RAG improved evaluative specificity on intermediate-quality answers (Δ = +0.84). LangGraph, FastAPI, ChromaDB, PostgreSQL.
+## Projects
 
-**[RAG Eval Harness](https://github.com/savinoo/rag-eval-harness)**
-Regression test for retrieval. Golden dataset, recall@k, MRR, shareable report. Vector-store agnostic, CI included.
+### [ai-grading-system](https://github.com/savinoo/ai-grading-system) — capstone (TCC)
 
-**[RAG Knowledge Base](https://github.com/savinoo/rag-knowledge-base)**
-Internal SOP/policy assistant. Every answer cites sources. Below a confidence threshold it answers "Not in KB yet" instead of guessing. Audit log plus built-in recall@k.
+Multi-agent grading of discursive exam answers, modelled on the ENEM process of two
+independent graders plus a referee.
 
-**[RAG Agent](https://github.com/savinoo/RAG_Agent)**
-Stateful agentic RAG on LangGraph. The agent decides whether retrieval is needed, then keeps conversation state across turns.
+Two examiners score the same answer in **isolated context** — neither sees the other's
+score or reasoning — and a third agent is invoked **only** when their divergence crosses
+a threshold. RAG is hard-scoped per exam with no global fallback, because context leaking
+between exams would contaminate both the grading and the study measuring it.
 
-## Experience
+Controlled study, 24 graded answers. RAG improved evaluative specificity on mid-range
+answers (Δ = +0.84) and changed nothing at the extremes. The referee never fired: real
+divergence peaked at 1.22 against a threshold of 2.0, which says the threshold needed
+empirical calibration rather than a guess. Weak answers failed the stability criterion.
+Both negative results are in the README, along with what I would do differently.
 
-**Petrobras** — Computer Engineering intern, Logistics (2024–2026)
+`LangGraph` · `LangChain` · `FastAPI` · `ChromaDB` · `PostgreSQL`
 
-Built AJUDEM, an internal RAG assistant for a recurring review process. It retrieves precedents from 100+ validated historical cases and meeting minutes, proposes a 0–10 score with reasoning, and a human confirms before the decision enters the corpus. In a monthly pilot, per-case review fell from several minutes to about 20 seconds; unresolved monthly items fell from 10–15 to fewer than 3.
+### Portal da Produtora — iOS + AWS serverless *(private repo)*
 
-**Instituto Federal Fluminense** — BSc Computer Engineering (2026)
+Media ingestion and review platform for a video production studio, replacing ad-hoc
+file sending with a traceable flow. Native iPhone app, web review portal, serverless
+backend. Deployed to AWS and validated on a real device.
 
-## Contact
+The design constraint that shaped everything: **upload and publication are independent
+operations** — putting a file in the cloud never exposes it to the client. Multipart
+uploads go straight from the phone to S3 through pre-signed URLs in resumable 16 MiB
+parts, so the file never travels through the API. Derivation runs async behind SQS with
+a dead-letter queue and idempotent Lambdas, so a retry can't duplicate an upload.
 
-Open to full-time roles in applied AI, data/analytics engineering, and Python backend. Rio de Janeiro or remote.
+42 backend tests, 35 native iOS tests, infrastructure validated by CDK synth.
 
-[LinkedIn](https://linkedin.com/in/savinoo) · [ai-grading-system](https://github.com/savinoo/ai-grading-system) · [rag-eval-harness](https://github.com/savinoo/rag-eval-harness)
+`Swift` · `TypeScript` · `CDK` · `Lambda ARM64` · `DynamoDB` · `S3` · `Cognito (OAuth 2.0 + PKCE)` · `SQS` · `MediaConvert` · `CloudFront`
+
+### AJUDEM — Petrobras, logistics *(internal, not public)*
+
+Monthly audit of stock-discrepancy justifications submitted by a partner company. The
+coordinator read each justification and accepted or rewrote it by hand; closing the
+indicator took hours.
+
+I started with a syntactic adherence indicator between the submitted text and the
+coordinator's corrected version. The RAG stage came later, once it was clear that the
+history of accepts and rejects was the context that was missing: the system retrieves
+precedents from 100+ validated cases and meeting minutes, proposes a 0–10 score with its
+reasoning, and an analyst confirms before the decision enters the corpus.
+
+Time spent on that indicator fell from **~3 hours/week on average to at most 2–10 minutes**.
+
+It only became part of the routine once the team trusted the output enough to bring it
+into a live negotiation meeting. That took sitting with the analysts to find where their
+bar was stricter than the code's — not tuning the prompt.
+
+## Also in this account
+
+Coursework and experiments from earlier on, kept because they're part of the record:
+[PCA implementation](https://github.com/savinoo/PCA-implementation),
+[a neural network that drives a car](https://github.com/savinoo/self-driving-car-with-neural-network).
+They are what they look like — things I built while learning.
+
+## Now
+
+Open to **AI engineering / agent engineering** roles, in Python. Remote, or hybrid and
+on-site in Rio de Janeiro.
+
+Studying for the AWS Solutions Architect Associate, exam booked for September 2026.
+
+[LinkedIn](https://linkedin.com/in/savinoo)
